@@ -1,0 +1,97 @@
+*{     /* to remove default margin and padding */
+    margin:0;
+    padding:0;
+    box-sizing:border-box; /* to box model*/
+}
+
+/* Global*/
+
+body{
+    font-family: "Merriweather", sans-serif;
+    background-color: #ebf2ff;
+}
+
+.button__primary{
+    background-image:linear-gradient(
+        to right,
+        #ff512f 0%,
+        #dd2476 51%,
+        #ff512f 100%
+    );
+
+    color: #fff; /* color of text*/
+    padding: 7px;
+    border: none;
+    border-radius: 7px;
+}
+
+.container{
+    width:100%;
+    margin: 0 auto; /* 0 for top and buttom, auto for left and ri8*/
+    padding: 0 15px; /* same approach */
+} 
+
+.hero__container{
+    width:100%   /* for it to occupy 100% of device width*/
+}
+
+.hero__image__container{
+    width: 100%;  /* same here*/
+}
+
+.hero__image{
+    width:100%;  /* for imgtoo */
+}
+.navbar{
+    display: flex; /* FOR APPEARING NXT TO EACH OTHER*/
+    justify-content: space-around;
+    align-items: center; /* for the button to align center*/
+}
+
+.navbar__brand{
+    width: 100px; /* to change size of logo*/
+}
+
+.navbar__logo{
+    width:100%; /* to occupy entire width of parent. but parent itself is 100px. thats the trick*/
+}
+
+
+
+@media (min-width:768px) {
+    .navbar{
+        justify-content: space-between;
+        padding: 10px 20px; /* topandbottom  right and left*/
+    }
+    .navbar__brand{
+        width: 150px; /* to change size of logo*/
+    }
+    .button__primary{  
+       padding: 20px;
+       font-size: 20px;
+    }
+    .hero__container{
+        display:flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: space-between;
+        gap:10px;
+    }
+}
+
+@media (min-width:1020px){
+    .container{
+        max-width: 1010px;
+
+    }
+    .hero__image__container{
+        width:400px;
+        height: 400px;
+    }
+    
+
+}
+
+@media (min-width:1400px) {
+    
+}
