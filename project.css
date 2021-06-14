@@ -23,6 +23,7 @@ body{
     padding: 7px;
     border: none;
     border-radius: 7px;
+    cursor: pointer;
 }
 
 .container{
@@ -56,7 +57,20 @@ body{
     width:100%; /* to occupy entire width of parent. but parent itself is 100px. thats the trick*/
 }
 
+.hero__text{
+    font-size: 30px; 
+    color:#1d3557;
+    margin:20px, 0px;/* for mobile screen size*/
+}
 
+/* menu card*/
+.food__menu__card{  /* for overlapping*/
+    width:100%;  
+}
+
+.food__image{
+    width:100%;
+}
 
 @media (min-width:768px) {
     .navbar{
@@ -67,7 +81,7 @@ body{
         width: 150px; /* to change size of logo*/
     }
     .button__primary{  
-       padding: 20px;
+       padding: 12px, 20px;
        font-size: 20px;
     }
     .hero__container{
@@ -81,17 +95,19 @@ body{
 
 @media (min-width:1020px){
     .container{
-        max-width: 1010px;
+        max-width: 900px;
 
     }
-    .hero__image__container{
-        width:400px;
-        height: 400px;
+    .hero__text{
+        font-size: 50px;
     }
     
 
 }
 
 @media (min-width:1400px) {
+     .container{
+         max-width: 1250px ;
+     }
     
 }
