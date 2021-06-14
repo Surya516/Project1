@@ -1,6 +1,6 @@
 *{     /* to remove default margin and padding */
     margin:0;
-    padding:0;
+    padding: 0;
     box-sizing:border-box; /* to box model*/
 }
 
@@ -69,11 +69,12 @@ body{
 
 .explore__menu__container{
     margin-top: 50px;
+    
 }
 .explore__menu__text{
     font-size: 30px; 
     color:#1d3557;
-    margin:20px 0px;
+    margin:20px 0;
     text-align: center;
 }
 .food__menu__card{  /* for overlapping*/
@@ -98,6 +99,55 @@ body{
     display: flex;
     justify-content: center;
 }
+
+/* flex*/
+.restaurants__description{
+    font-size: 30px; 
+    color:#1d3557;
+    margin:20px 0;
+    text-align: center;
+}
+
+.restaurants__flex__row__one{
+    width: 100%;
+    display: flex;
+    gap: 4px;
+}
+
+.restaurants__flex__row__two{
+    width:100%;
+    display: flex;
+    
+    gap:4px;
+}
+
+.restaurant__1__image,
+.restaurant__2__image,
+.restaurant__3__image,
+.restaurant__4__image{
+    width: 100%;
+    height: 100%;
+    border-radius: 7px;
+}
+
+.restaurants__flex__row__one{
+    align-items: baseline;
+    margin-bottom: 5px;
+}
+.restaurant__1,
+.restaurant__4{
+    width: 100%;
+    height: 150px;
+}
+
+
+
+.restaurant__2,
+.restaurant__3  {
+    height: 200px;
+    width: 120%;
+}
+
 
 @media (min-width:768px) {
     .navbar{
@@ -153,6 +203,20 @@ body{
         margin-top: -20px;
         margin-bottom: 30px ;
     }
+
+    .restaurants__description{
+        font-size: 40px; 
+        width: 100%;
+    }
+
+    .restaurants__container{
+        display: flex;
+        align-items: center;
+    }
+
+    .restaurants__flex{
+        width: 100%;
+    }
 }
 
 @media (min-width:1020px){
@@ -174,6 +238,11 @@ body{
         font-weight: bold;
         
     }
+
+    .restaurants__container{
+        margin-top: 30px ;
+    }
+
 }
 
 @media (min-width:1400px) {
