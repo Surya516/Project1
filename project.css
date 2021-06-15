@@ -27,9 +27,10 @@ body{
 }
 
 .container{
-    width:100%;
+    max-width:100%;
     margin: 0 auto; /* 0 for top and buttom, auto for left and ri8*/
-    padding: 0 15px; /* same approach */
+    padding: 0 20px; /* same approach */
+    
 } 
 
 .hero__container{
