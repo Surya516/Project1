@@ -1,6 +1,9 @@
 const taskContainer = document.querySelector(".task__container");
 
-console.log(taskContainer);
+//GLobal Store
+
+const globalStore = [];
+// card1, card2,card3.... storing them in array in local storage.
 
 
 const newCard= ({id, 
@@ -30,6 +33,23 @@ const newCard= ({id,
 </div>`
 
 
+const loadInitialTaskCards= () => {
+    // access localstorage
+    const getInitialData= localStorage.getItem("tasky");
+
+    if(!getInitialData) return;
+    //convert stringified to normal object-- destructuring
+    const {cards}= JSON.parse(getInitialData);
+
+    // map around the array to genearate Html card and inject it to DOM
+
+    cards.map( (cardObject) => {
+        const createNewCard = newCard(cardObject);
+        taskContainer.insertAdjacentHTML("beforeend", createNewCard);
+        globalStore.push(cardObject); // adding into global array from local storage
+    });
+};
+
 const saveChanges = () => {
     const taskData = {
         id: `${Date.now()}`,  // unique no for card id 
@@ -43,7 +63,11 @@ const saveChanges = () => {
 
     taskContainer.insertAdjacentHTML("beforeend", createNewCard);
 
-    
+    globalStore.push(taskData);
+    // priniting the data in the console 
+    // Application programming interface -- pushing it 
+    // add to local storage
+    localStorage.setItem("tasky", JSON.stringify({ cards: globalStore })); // we are storing globalstore in form of object cards. Tasky is key used to identify data in local storage.  Json.stringify to covert into string. 
 };
 
 
