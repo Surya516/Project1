@@ -2,7 +2,7 @@ const taskContainer = document.querySelector(".task__container");
 
 //GLobal Store
 
-const globalStore = [];
+let globalStore = [];
 // card1, card2,card3.... storing them in array in local storage.
 
 
@@ -14,7 +14,8 @@ const newCard= ({id,
 <div class="card ">
  <div class="card-header d-flex justify-content-end gap-2">
      <button type="button" class="btn btn-outline-success"><i class="fas fa-pencil-alt"></i></button>
-     <button type="button" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
+     <button type="button" id= ${id} class="btn btn-outline-danger" onclick = "deleteCard.apply(this, arguments)">
+     <i class="fas fa-trash-alt" id= ${id} onclick = "deleteCard.apply(this, arguments)"></i></button>
  </div>
  <img 
   src= ${imageUrl}
@@ -67,8 +68,37 @@ const saveChanges = () => {
     // priniting the data in the console 
     // Application programming interface -- pushing it 
     // add to local storage
-    localStorage.setItem("tasky", JSON.stringify({ cards: globalStore })); // we are storing globalstore in form of object cards. Tasky is key used to identify data in local storage.  Json.stringify to covert into string. 
+    updateLocalStorage();
+    
+    
 };
 
+const deleteCard= (event) => {
+    // id of card
+    event = window.event;
+    const targetID = event.target.id; 
+    const tagname = event.target.tagName; // BUTTON
+    // search global store array, remove obj that has id 
+    const newUpdatedArray = globalStore.filter(
+        (cardObject) => cardObject.id !== targetID
+    ); // id equal to targetid is removed
 
+    
+    globalStore = newUpdatedArray; //use let before globalstore array to proceed for changes 
+    
+    updateLocalStorage(); // updating local storage
+    // access DOM to remove them
+
+    if(tagname === "BUTTON"){
+        return taskContainer.removeChild(
+             event.target.parentNode.parentNode.parentNode
+        );
+    }
+
+    return taskContainer.removeChild(
+        event.target.parentNode.parentNode.parentNode.parentNode
+    );
+};
+
+const updateLocalStorage= ()=> localStorage.setItem("tasky", JSON.stringify({cards: globalStore})); // we are storing globalstore in form of object cards. Tasky is key used to identify data in local storage.  Json.stringify to covert into string. 
 // parent obj of html-> document 
