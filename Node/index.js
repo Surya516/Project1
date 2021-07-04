@@ -3,8 +3,16 @@ require("dotenv").config();
 //  frameworkexpress 
 const express= require("express");
 const mongoose = require("mongoose");
+
+
 // database 
 const database = require("./database/index");
+
+//Models
+const BookModels = require("./database/book");
+const AuthorModels = require("./database/author");
+const PublicationModels = require("./database/publication");
+
 
 // initializing express
 const shapeAI= express();
