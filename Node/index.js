@@ -1,6 +1,8 @@
+
+require("dotenv").config();
 //  frameworkexpress 
 const express= require("express");
-
+const mongoose = require("mongoose");
 // database 
 const database = require("./database/index");
 
@@ -10,6 +12,19 @@ const shapeAI= express();
 
 // configuring server to use json obj data
 shapeAI.use(express.json());
+
+// database connection
+
+mongoose.connect( process.env.MONGO_URL,
+
+{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true
+}
+)
+.then(() => console.log("connection established!!!"));
 
 /*
 Route ---  /
