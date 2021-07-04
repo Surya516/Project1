@@ -93,7 +93,7 @@ Method     Get
 shapeAI.get("/author", async (req,res)=> {
     const getAllAuthors = await AuthorModel.find();
     return res.json({
-        authors: getAllAuthors
+        authors: getAllAuthors 
     });
 });
 
@@ -157,16 +157,22 @@ shapeAI.post("/author/new", (req,res)=> {
     return res.json({ message:"author  was added!"});
 });
 
-// for updating title 
-shapeAI.put("/book/update/:isbn", (req,res) => {
-    database.books.forEach((book)=> {
-      if(book.ISBN === req.params.isbn){
-          book.title= req.body.bookTitle;
-          return;
-      }
-    });
+// for updating  book title 
+shapeAI.put("/book/update/:isbn", async (req,res) => {
 
-    return res.json({books: database.books});
+    const updatedBook = await BookModel.findOneAndUpdate({
+        ISBN: req.params.isbn,
+    },
+    {
+        title: req.body.bookTitle,
+    },
+    {
+        new: true,
+    }
+    );
+    
+
+    return res.json({books: updatedBook});
 });
 
 
